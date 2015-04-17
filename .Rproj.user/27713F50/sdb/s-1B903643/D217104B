@@ -1,0 +1,16 @@
+{
+    "contents" : "# Principal Component Analysis and Factor Analysis in R\n\nmydata <- read.csv(\"pca_gsp.csv\")\nattach(mydata)\n\n# Define variables\nX <- cbind(Ag, Mining, Constr, Manuf, Manuf_nd, Transp, Comm, Energy, TradeW, TradeR, RE, Services, Govt)\nX\n\n# Descriptive statistics\nsummary(X)\ncor(X)\n\n# Principal component analysis\npcal <- princomp(X, scores = TRUE, cor = TRUE)\nsummary(pcal)\n\n# Loadings of principal components\nloadings(pcal)\n\n# Scree plot of eigenvalues\nplot(pcal)\n\nscreeplot(pcal, type = \"line\", main = \"Scree Plot\")\nabline(h = 1)\n\n# Biplot of score variables\nbiplot(pcal)\n\n# Scores of the components\npcal$scores[1:10,]\n\n# FACTOR ANALYSIS\nfa1 <- factanal(X, factor = 3)\nfa1\n\nfa2 <- factanal(X, factor = 3, rotation = \"varimax\")\nfa2\n\nfa3 <- factanal(X, factor = 3, rotation = \"varimax\", scores = \"regression\")\nfa3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1429312097102.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1623070324",
+    "id" : "D217104B",
+    "lastKnownWriteTime" : 1429031202,
+    "path" : "~/r_projects/factor_analysis_R_statistics/factor_analysis.R",
+    "project_path" : "factor_analysis.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
